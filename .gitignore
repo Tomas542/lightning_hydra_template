@@ -20,14 +20,13 @@ weights/*
 .vscode/*
 
 # repo structure exclusions
+configs/
 !configs/*.yaml
+docs/
 !docs/*.md
+notebooks/
 !notebooks/*.ipynb
+scripts/
 !scripts/*.sh
+src/
 !src/*.py
-# !*.lock
-# !*.toml
-# !*.yaml
-# !README.md
-# !.yamllint
-# !.git*
