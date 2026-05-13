@@ -1,0 +1,33 @@
+# python environments
+.pixi/*
+!.pixi/config.toml
+.venv
+
+# python files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.ipynb_checkpoints
+
+# repo specific files
+.env
+logs/*
+datasets/*
+weights/*
+.vscode/*
+
+# repo structure exclusions
+!configs/*.yaml
+!docs/*.md
+!notebooks/*.ipynb
+!scripts/*.sh
+!src/*.py
+# !*.lock
+# !*.toml
+# !*.yaml
+# !README.md
+# !.yamllint
+# !.git*

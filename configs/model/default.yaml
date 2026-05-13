@@ -1,0 +1,4 @@
+_target_: model.clief_classifier.CliefClassifier
+mamba_dim: 256
+attn_hidden_dim: 128
+num_classes: { num_classes }

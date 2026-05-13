@@ -1,0 +1,8 @@
+_target_: pytorch_lightning.Trainer
+
+# debug
+enable_model_summary: false # printing accelerator, params
+num_sanity_val_steps: 0 # debug steps at the beginning
+fast_dev_run: false # debug run
+
+deterministic: true

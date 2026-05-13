@@ -1,0 +1,153 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [ "hatchling" ]
+
+[project]
+name = "my-project"
+version = "0.1"
+description = ""
+readme = "README.md"
+authors = [
+    { name = "First_Name Second_Name" },
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "lightning==2.6.0",
+    "torch==2.7.1",
+    "torchaudio==2.7.1",
+    "torchmetrics==1.9.0",
+    "torchvision==0.22.1",
+]
+[project.urls]
+Source = "https://github.com/user/project"
+
+[dependency-groups]
+dev = [ "prek>=0.3.13,<0.4" ]
+notebook = [ "ipykernel>=7.2,<8", "ipywidgets>=8.1.8,<9" ]
+
+[tool.pixi.dependencies]
+python = "3.12.*"  # keep in sync with project.require-python
+[tool.pixi.environments]
+default = { solve-group = "default" }
+dev = { features = [ "dev" ], solve-group = "default" }
+notebook = { features = [ "notebook" ], solve-group = "default" }
+[tool.pixi.pypi-dependencies]
+torch = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
+torchaudio = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
+torchvision = { version = ">=0.22.1, <0.23", index = "https://download.pytorch.org/whl/cu126" }
+[tool.pixi.workspace]
+channels = [ "conda-forge" ]
+platforms = [ "linux-64" ]
+
+[tool.ruff]
+line-length = 120
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+skip-magic-trailing-comma = false
+docstring-code-line-length = 80
+docstring-code-format = true
+[tool.ruff.lint]
+select = [
+    "A",      # Built-ins shadowing
+    "ANN",    # Annotations
+    "ARG",    # Unused arguments
+    "B",      # Bugs
+    "BLE",    # Exception specified
+    "C4",     # Catch incorrect use of comprehensions
+    "C90",    # Statement complexity
+    "COM",    # Commas
+    "DOC",    # Docsting fomatting
+    "DTZ",    # Datetime use
+    "E",      # Errors
+    "EM",     # Raising exceptions
+    "ERA",    # Commented code
+    "F",      # Formats
+    "FA",     # future annotations
+    "FURB",   # Refubishing
+    "G",      # Logging formatting
+    "I",      # Imports
+    "ICN",    # Use common import conventions
+    "INP",    # __init__.py required
+    "ISC",    # String concatenations
+    "LOG",    # Logging
+    "NPY",    # NumPy things
+    "PD",     # Pandas things
+    "PERF",   # Some performance issues
+    "PGH",    # pygrep parsed
+    "PIE",    # Unnecessary operation
+    "PL",     # Pylint
+    "PLE",    # Errors
+    "PLR",    # Refactor
+    "PLW",    # Warnings
+    "PTH",    # Pathlib instead of os.path
+    "PYI",    # Type hints stubs
+    "Q",      # Quotes
+    "RET",    # Return practices
+    "RSE",    # No comment - no parantesis in raise
+    "RUF",    # Ruff specific rules
+    "S",      # Bandit usage
+    "SIM",    # Code simplifications
+    "SLF",    # No private member access
+    "T20",    # No prints, only loggings
+    "TC",     # type annotations
+    "TD",     # TODO tags
+    "TID253", # module level imports
+    "UP",     # Warn if certain things can changed due to newer Python versions
+    "W",      # Whitespace warnings
+    "YTT",    # flake8-2020
+]
+ignore = [
+    "ANN002",  # unannotated *args
+    "ANN003",  # unannotated **kwargs
+    "ANN401",  # allow typing.Any
+    "E741",    # ambigous names, like l and other
+    "N803",    # Argument names not only lowercase
+    "NPY002",  # numpy.random allowed
+    "PERF203", # try-except in loop
+    "PLC0415", # not top-level imports
+    "RET504",  # Assign before return
+    "S101",    # allow asserts
+    "TD002",   # no author in TODO
+    "TD003",   # no links in TODO
+]
+task-tags = [ "TODO" ]
+
+[tool.repo-review]
+ignore = [
+    "MY",    # no use of mypy, ruff + basedpyright
+    "GH",    # no use of github actions
+    "PC",    # prek instead of pre-commit
+    "PP002", # no build system
+    "PP004", # uppercap python for reproducable env
+    "PP301", # no pytest
+    "PY003", # no license file
+    "PY005", # no test folder
+    "PY006", # prek instead of pre-commit
+    "PY007", # uv doesn't have task runner
+]
+
+[tool.pyproject-fmt]
+indent = 4
+column_width = 120
+generate_python_version_classifiers = false
+table_format = "long"
+collapse_tables = [ "project.authors" ]
+no_print_diff = true
+
+[tool.interrogate]
+ignore-init-module = true
+ignore-magic = true
+ignore-semiprivate = false
+ignore-private = true
+ignore-property-decorators = false
+ignore-module = true
+ignore-nested-functions = true
+ignore-nested-classes = true
+ignore-overloaded-functions = true
+ignore-regex = [ "\\*_step", "forward", "configure_optimizer", "setup", "prepare", "\\*_dataloader" ]
+style = "google"
+# possible values: 0 (minimal output), 1 (-v), 2 (-vv)
+fail-under = 40
+verbose = 0
+quiet = false

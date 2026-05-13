@@ -1,0 +1,32 @@
+defaults:
+  - paths: default
+
+  # model
+  - model: default
+  - criterion: cross_entropy
+  - optimizer: default
+
+  # lightning
+  - callbacks:
+      - common
+      - early_stopping
+      - checkpointer
+  - logger: csv
+  - trainer: default
+
+  - hydra: default
+  - _self_
+
+seed: 42
+num_classes: 1
+
+# lightning
+datamodule:
+  _target_: data.datamodule.BirdCliefDataModule
+  batch_size: 2
+  num_workers: 1
+  pin_memory: false
+
+lightning_module:
+  clief_model: ${model}
+  criterion: ${criterion}
