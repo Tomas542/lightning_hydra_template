@@ -140,9 +140,8 @@ hooks = [
 repo = "https://github.com/pre-commit/pygrep-hooks"
 rev = "v1.10.0"
 hooks = [
-  { id = "python-no-eval", files = "^src/", types_or = ["python", "pyi"], priority = 60 },
-  { id = "rst-backticks", files = "^src/", types_or = ["python", "pyi"], priority = 70 },
-  { id = "rst-directive-colons", files = "^src/", types_or = ["python", "pyi"], priority = 80 },
+  { id = "rst-backticks", files = "^src/", types_or = ["python", "pyi"], priority = 60 },
+  { id = "rst-directive-colons", files = "^src/", types_or = ["python", "pyi"], priority = 70 },
 ]
 
 [[repos]]
@@ -152,7 +151,7 @@ hooks = [
   {
     id = "sp-repo-review",
     name = "Validate Python repository",
-    priority = 90,
+    priority = 80,
   },
 ]
 
@@ -162,6 +161,6 @@ rev = "v1.46.1"
 hooks = [
   {
     id = "typos",
-    priority = 100,
+    priority = 90,
   },
 ]

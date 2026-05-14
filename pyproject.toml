@@ -147,7 +147,6 @@ ignore-nested-classes = true
 ignore-overloaded-functions = true
 ignore-regex = [ "\\*_step", "forward", "configure_optimizer", "setup", "prepare", "\\*_dataloader" ]
 style = "google"
-# possible values: 0 (minimal output), 1 (-v), 2 (-vv)
 fail-under = 40
 verbose = 0
 quiet = false
