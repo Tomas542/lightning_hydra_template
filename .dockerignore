@@ -1,4 +1,37 @@
+# git files
 .git/
 .git*
+
+# markdown files
 docs/
 README.md
+
+# python environments
+.pixi/*
+!.pixi/config.toml
+.venv
+
+# python files
+__pycache__/
+*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info
+.ipynb_checkpoints
+
+# repo specific files
+logs/*
+datasets/*
+weights/*
+.vscode/*
+
+# repo structure exclusions
+configs/
+!configs/*.yaml
+notebooks/
+!notebooks/*.ipynb
+scripts/
+!scripts/*.sh
+src/
+!src/*.py
