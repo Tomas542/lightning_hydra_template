@@ -39,18 +39,18 @@ uv.lock merge=binary linguist-language=YAML linguist-generated=true -diff
 *.pyo      binary export-ignore
 *.pyd      binary
 
-# diff attributes
+# docs
 *.bibtex   text diff=bibtex
-*.doc      diff=astextplain
-*.DOC      diff=astextplain
-*.docx     diff=astextplain
-*.DOCX     diff=astextplain
-*.dot      diff=astextplain
-*.DOT      diff=astextplain
-*.pdf      diff=astextplain
-*.PDF      diff=astextplain
-*.rtf      diff=astextplain
-*.RTF      diff=astextplain
+*.doc      binary
+*.DOC      binary
+*.docx     binary
+*.DOCX     binary
+*.dot      binary
+*.DOT      binary
+*.pdf      binary
+*.PDF      binary
+*.rtf      binary
+*.RTF      binary
 *.md       text diff=markdown
 *.mdx      text diff=markdown
 *.tex      text diff=tex
