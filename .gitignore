@@ -19,6 +19,12 @@ datasets/*
 weights/*
 .vscode/*
 
+# pytorch weights
+*.pt
+*.pt2
+*.pth
+*.safetensors
+
 # repo structure exclusions
 configs/
 !configs/*.yaml
