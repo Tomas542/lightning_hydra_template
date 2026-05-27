@@ -89,6 +89,8 @@ select = [
     "S",      # Bandit usage
     "SIM",    # Code simplifications
     "SLF",    # No private member access
+    "SLOT",   # __slot__ in certain classes
+    "T10",    # No debugger calls in commited code
     "T20",    # No prints, only loggings
     "TC",     # type annotations
     "TD",     # TODO tags
@@ -106,6 +108,8 @@ ignore = [
     "NPY002",  # numpy.random allowed
     "PERF203", # try-except in loop
     "PLC0415", # not top-level imports
+    "PLR09",   # too many rules have no specified limits, so either useless, or unusable
+    "PLR2004", # allow magic numbers for comparison
     "RET504",  # Assign before return
     "S101",    # allow asserts
     "TD002",   # no author in TODO
