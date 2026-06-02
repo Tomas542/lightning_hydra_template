@@ -24,13 +24,15 @@ Source = "https://github.com/user/project"
 [dependency-groups]
 dev = [ "prek>=0.3.13,<0.4" ]
 notebook = [ "ipykernel>=7.2,<8", "ipywidgets>=8.1.8,<9" ]
+safe = [ "fickling[torch]>=0.1.7,<0.2", "modelaudit[pytorch,safetensors]>=0.2.45,<0.3", "picklescan>=1.0.4,<2" ]
 
-[tool.pixi.dependencies]
-python = "3.12.*"  # keep in sync with project.require-python
 [tool.pixi.environments]
 default = { solve-group = "default" }
 dev = { features = [ "dev" ], solve-group = "default" }
 notebook = { features = [ "notebook" ], solve-group = "default" }
+safe = { features = [ "safe" ], solve-group = "default" }
+[tool.pixi.feature.safe.tasks]
+scan_model = { cmd = "picklescan -p {{path}}; modelaudit {{path}}; fckling --trace {{path}}", args = [ "path" ] }
 [tool.pixi.pypi-dependencies]
 torch = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
 torchaudio = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
