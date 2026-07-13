@@ -26,13 +26,13 @@ weights/*
 *.safetensors
 
 # repo structure exclusions
-configs/
+configs/*
 !configs/*.yaml
-docs/
+docs/*
 !docs/*.md
-notebooks/
+notebooks/*
 !notebooks/*.ipynb
-scripts/
+scripts/*
 !scripts/*.sh
-src/
+src/*
 !src/*.py
