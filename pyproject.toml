@@ -119,6 +119,9 @@ ignore = [
     "TD003",   # no links in TODO
 ]
 task-tags = [ "TODO" ]
+[tool.ruff.lint.extend-per-file-ignores]
+"src/utils.py" = [ "I001" ]  # Impots not on top for monkey patch
+"*.ipynb" = [ "T201" ]  # Print inside jupyter notebooks
 
 [tool.repo-review]
 ignore = [
