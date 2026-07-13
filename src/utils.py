@@ -32,9 +32,20 @@ def get_callbacks(cfg: DictConfig) -> list[Callback]:
 
 def get_metrics(cfg: DictConfig) -> list[Metric]:
     """Parses torchmetrics from config"""
-    # TODO: add metrics generation
+    return [hydra.utils.instantiate(cfg[callback_name]) for callback_name in cfg if callback_name != "default"]
 
 
 def get_loggers(cfg: DictConfig) -> list[Logger]:
     """Parses loggers from config"""
-    # TODO: add loggers generation
+    loggers = []
+    for callback_name in cfg:
+        if callback_name != "default":
+            # monkey patch
+            if callback_name == "trackio":
+                import sys
+                import trackio as wandb
+
+                sys.modules["wandb"] = wandb
+
+            loggers.append(hydra.utils.instantiate(cfg[callback_name]))
+    return loggers
