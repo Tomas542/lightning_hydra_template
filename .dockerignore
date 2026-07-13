@@ -27,11 +27,11 @@ weights/*
 .vscode/*
 
 # repo structure exclusions
-configs/
+configs/*
 !configs/*.yaml
-notebooks/
+notebooks/*
 !notebooks/*.ipynb
-scripts/
+scripts/*
 !scripts/*.sh
-src/
+src/*
 !src/*.py
