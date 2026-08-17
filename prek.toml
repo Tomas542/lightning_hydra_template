@@ -39,18 +39,6 @@ hooks = [
 # pyproject
 
 [[repos]]
-repo = "https://github.com/abravalheri/validate-pyproject"
-rev = "v0.25"
-hooks = [
-  {
-    id = "validate-pyproject",
-    additional_dependencies = ["validate-pyproject-schema-store[all]"],
-    files = "pyproject.toml",
-    priority = 40,
-  },
-]
-
-[[repos]]
 repo = "https://github.com/tox-dev/pyproject-fmt"
 rev = "v2.21.2"
 hooks = [
@@ -58,7 +46,19 @@ hooks = [
     id = "pyproject-fmt",
     args = ["--no-print-diff", "--keep-full-version"],
     files = "pyproject.toml",
-    priority = 50
+    priority = 40,
+  },
+]
+
+[[repos]]
+repo = "https://github.com/abravalheri/validate-pyproject"
+rev = "v0.25"
+hooks = [
+  {
+    id = "validate-pyproject",
+    additional_dependencies = ["validate-pyproject-schema-store[all]"],
+    files = "pyproject.toml",
+    priority = 50,
   },
 ]
 
