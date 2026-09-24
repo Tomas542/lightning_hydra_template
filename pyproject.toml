@@ -22,7 +22,7 @@ dependencies = [
 Source = "https://github.com/user/project"
 
 [dependency-groups]
-dev = [ "prek>=0.3.13,<0.4" ]
+dev = [ "prek>=0.3.13,<0.4", "ruff==0.15.12" ]
 test = [ "pytest>=9.0.3,<10", "pytest-cov>=7.1.0,<8", "pytest-xdist>=3.8.0,<4" ]
 extend = [ "beartype>=0.22.9,<0.23", "codecarbon>=3.2.6,<4", "jaxtyping>=0.3.9,<0.4", "pydantic>=2.13.4,<2.14" ]
 notebook = [ "ipykernel>=7.2,<8", "ipywidgets>=8.1.8,<9" ]
@@ -35,6 +35,9 @@ notebook = { features = [ "notebook" ], solve-group = "default" }
 safe = { features = [ "safe" ], solve-group = "default" }
 extend = { features = [ "extend" ], solve-group = "default" }
 test = { features = [ "test" ], solve-group = "default" }
+[tool.pixi.feature.dev.tasks]
+fix = { cmd = "ruff check {{path}} --fix", args = [ "path" ] }
+format = { cmd = "ruff check {{path}} --fix && ruff format {{path}}", args = [ "path" ] }
 [tool.pixi.feature.safe.dependencies]
 grype = ">=0.112.0, <1.0"
 [tool.pixi.feature.safe.tasks]
