@@ -29,7 +29,11 @@ hooks = [
 repo = "https://github.com/igorshubovych/markdownlint-cli"
 rev = "v0.49.1"
 hooks = [
-  { id = "markdownlint", priority = 30 },
+  {
+    id = "markdownlint",
+    args = ["--ignore .agents/*.md"],
+    priority = 30
+  },
 ]
 
 # shell scripts
