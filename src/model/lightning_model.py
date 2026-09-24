@@ -39,7 +39,7 @@ class MyLightningModule(L.LightningModule):
     def forward(self, features: Tensor) -> Tensor:
         return self.model(features)
 
-    def __shared_step(self, batch: tuple) -> tuple[Tensor, Tensor]:
+    def _shared_step(self, batch: tuple) -> tuple[Tensor, Tensor]:
         features, labels = batch
         preds = self(features)
         return preds, labels
