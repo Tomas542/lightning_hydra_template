@@ -27,12 +27,15 @@ weights/*
 
 # repo structure exclusions
 configs/*
-!configs/*.yaml
+!configs/*/
+!configs/**/*.yaml
 docs/*
-!docs/*.md
+!docs/*/
+!docs/**/*.md
 notebooks/*
 !notebooks/*.ipynb
 scripts/*
 !scripts/*.sh
 src/*
-!src/*.py
+!src/*
+!src/**/*.py
