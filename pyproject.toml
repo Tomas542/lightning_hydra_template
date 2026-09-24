@@ -158,14 +158,14 @@ no_print_diff = true
 [tool.interrogate]
 ignore-init-module = true
 ignore-magic = true
-ignore-semiprivate = false
+ignore-semiprivate = true
 ignore-private = true
-ignore-property-decorators = false
+ignore-property-decorators = true
 ignore-module = true
 ignore-nested-functions = true
 ignore-nested-classes = true
 ignore-overloaded-functions = true
-ignore-regex = [ "\\*_step", "forward", "configure_optimizer", "setup", "prepare", "\\*_dataloader" ]
+ignore-regex = [ "^.*_step$", "^configure_optimizers$", "^forward$", "^setup$", "^prepare$", "^.*_dataloader" ]
 style = "google"
 fail-under = 40
 verbose = 0
