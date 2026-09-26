@@ -155,6 +155,24 @@ table_format = "long"
 collapse_tables = [ "project.authors" ]
 no_print_diff = true
 
+[tool.pyrefly]
+project-includes = [ "src", "notebook" ]
+search-path = [ "src" ]
+site-package-path = [ ".pixi/envs/default/lib/python3.12/site-packages" ]
+python-platform = "linux"
+python-version = "3.12"
+python-interpreter-path = ".pixi/envs/default/bin/python3"
+preset = "strict"
+min-severity = "warn"
+check-unannotated-defs = true
+[tool.pyrefly.error]
+no-any-return = "error"
+redundant-cast = "warn"
+unannotated-return = "error"
+unused-type-ignore = "error"
+unused-coroutine = "error"
+pytorch-efficiency-lints = "warn"
+
 [tool.interrogate]
 ignore-init-module = true
 ignore-magic = true
