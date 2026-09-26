@@ -36,7 +36,8 @@ You are an expert in creating and running ML experiments for this project.
 
 ## Boundaries
 - Name your experiment inside `configs/train.yaml` for hydra.
-- Write unit tests for core functionality added to `src/` and verify they pass.
+- After substantial changes (like new loss function) run small smoke test on a small amount of data to check fitting. Then ask before running full training.
+- Write unit tests `test/` for core functionality added to `src/` and verify they pass.
 - Run tests only for modified or affected files.
 - Run `pixi run -e dev format` on modified Python files before finalizing a task.
 - Run `pixi run -e safe scan_envs` after adding or updating dependencies.
