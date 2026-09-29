@@ -134,13 +134,13 @@ hooks = [
   {
     id = "ruff-check",
     args = ["--fix"],
-    files = "^(src|notebook|test)/",
+    files = "^(src|notebook|tests)/",
     types_or = ["python", "pyi", "jupyter"],
     priority = 40,
   },
   {
     id = "ruff-format",
-    files = "^(src|notebook|test)/",
+    files = "^(src|notebook|tests)/",
     types_or = ["python", "pyi", "jupyter"],
     priority = 50,
   },
@@ -152,7 +152,7 @@ rev = "1.1.1"
 hooks = [
   {
     id = "pyrefly-check",
-    files = "^(src|notebook|test)/",
+    files = "^(src|notebook|tests)/",
     types_or = ["python", "pyi", "jupyter"],
     priority = 60,
   }
@@ -162,8 +162,8 @@ hooks = [
 repo = "https://github.com/pre-commit/pygrep-hooks"
 rev = "v1.10.0"
 hooks = [
-  { id = "rst-backticks", files = "^(src|test)/", types_or = ["python", "pyi"], priority = 70 },
-  { id = "rst-directive-colons", files = "^(src|test)/", types_or = ["python", "pyi"], priority = 80 },
+  { id = "rst-backticks", files = "^(src|tests)/", types_or = ["python", "pyi"], priority = 70 },
+  { id = "rst-directive-colons", files = "^(src|tests)/", types_or = ["python", "pyi"], priority = 80 },
 ]
 
 [[repos]]
