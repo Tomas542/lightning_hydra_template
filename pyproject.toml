@@ -12,7 +12,7 @@ authors = [
 ]
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "hydra-core>=1.3.7,<2",
+    "hydra-core>=1.3,<2",
     "lightning==2.6.0",
     "torch==2.7.1",
     "torchaudio==2.7.1",
@@ -23,7 +23,7 @@ dependencies = [
 Source = "https://github.com/user/project"
 
 [dependency-groups]
-dev = [ "prek>=0.3.13,<0.4", "ruff==0.15.12" ]
+dev = [ "prek>=0.3.13,<0.4", "pyrefly==1.1.1", "ruff==0.15.12" ]
 test = [ "pytest>=9.0.3,<10", "pytest-cov>=7.1.0,<8", "pytest-xdist>=3.8.0,<4" ]
 extend = [ "beartype>=0.22.9,<0.23", "codecarbon>=3.2.6,<4", "jaxtyping>=0.3.9,<0.4", "pydantic>=2.13.4,<2.14" ]
 notebook = [ "ipykernel>=7.2,<8", "ipywidgets>=8.1.8,<9" ]
@@ -158,22 +158,23 @@ collapse_tables = [ "project.authors" ]
 no_print_diff = true
 
 [tool.pyrefly]
-project-includes = [ "src", "notebook" ]
+project-includes = [ "src", "notebook", "test" ]
 search-path = [ "src" ]
 site-package-path = [ ".pixi/envs/default/lib/python3.12/site-packages" ]
 python-platform = "linux"
 python-version = "3.12"
 python-interpreter-path = ".pixi/envs/default/bin/python3"
 preset = "strict"
-min-severity = "warn"
+min-severity = "error"
 check-unannotated-defs = true
-[tool.pyrefly.error]
+[tool.pyrefly.errors]
 no-any-return = "error"
 redundant-cast = "warn"
 unannotated-return = "error"
 unused-type-ignore = "error"
 unused-coroutine = "error"
 pytorch-efficiency-lints = "warn"
+bad-unpacking = "warn"  # init classes with hydra config using dict unpacking
 
 [tool.interrogate]
 ignore-init-module = true

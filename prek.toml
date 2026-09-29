@@ -134,24 +134,36 @@ hooks = [
   {
     id = "ruff-check",
     args = ["--fix"],
-    files = "^(src|notebook)/",
+    files = "^(src|notebook|test)/",
     types_or = ["python", "pyi", "jupyter"],
     priority = 40,
   },
   {
     id = "ruff-format",
-    files = "^(src|notebook)/",
+    files = "^(src|notebook|test)/",
     types_or = ["python", "pyi", "jupyter"],
     priority = 50,
   },
 ]
 
 [[repos]]
+repo = "https://github.com/facebook/pyrefly-pre-commit"
+rev = "1.1.1"
+hooks = [
+  {
+    id = "pyrefly-check",
+    files = "^(src|notebook|test)/",
+    types_or = ["python", "pyi", "jupyter"],
+    priority = 60,
+  }
+]
+
+[[repos]]
 repo = "https://github.com/pre-commit/pygrep-hooks"
 rev = "v1.10.0"
 hooks = [
-  { id = "rst-backticks", files = "^src/", types_or = ["python", "pyi"], priority = 60 },
-  { id = "rst-directive-colons", files = "^src/", types_or = ["python", "pyi"], priority = 70 },
+  { id = "rst-backticks", files = "^(src|test)/", types_or = ["python", "pyi"], priority = 70 },
+  { id = "rst-directive-colons", files = "^(src|test)/", types_or = ["python", "pyi"], priority = 80 },
 ]
 
 [[repos]]
@@ -161,7 +173,7 @@ hooks = [
   {
     id = "sp-repo-review",
     name = "Validate Python repository",
-    priority = 80,
+    priority = 90,
   },
 ]
 
@@ -171,6 +183,6 @@ rev = "v1.46.1"
 hooks = [
   {
     id = "typos",
-    priority = 90,
+    priority = 100,
   },
 ]
