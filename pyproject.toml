@@ -144,7 +144,6 @@ ignore = [
     "PP004", # uppercap python for reproducable env
     "PP301", # no pytest
     "PY003", # no license file
-    "PY005", # no test folder
     "PY006", # prek instead of pre-commit
     "PY007", # uv doesn't have task runner
 ]
@@ -158,7 +157,7 @@ collapse_tables = [ "project.authors" ]
 no_print_diff = true
 
 [tool.pyrefly]
-project-includes = [ "src", "notebook", "test" ]
+project-includes = [ "src", "notebook", "tests" ]
 search-path = [ "src" ]
 site-package-path = [ ".pixi/envs/default/lib/python3.12/site-packages" ]
 python-platform = "linux"
