@@ -11,7 +11,7 @@ This skill converts experimental outcomes, dataset statistics, and model archite
 When generating tables for reports or paper drafts, follow standard academic LaTeX style:
 - Use `booktabs` (`\toprule`, `\midrule`, `\bottomrule`).
 - Avoid vertical borders (`|`).
-- Explicitly bold the best metric result in each column and underline the second-best result (unless instructed otherwise).
+- Explicitly bold the best metric result in each column and underline the second-best result if there are more than 2 methods in the table (unless instructed otherwise).
 - Wrap numbers and metric uncertainties cleanly.
 - Add up and down arrow keys near the metrics' names.
 
@@ -34,7 +34,7 @@ Proposed Variant     & 112.1 & \textbf{0.389} & \textbf{90.1} & 13.1 \\
 ## 2. Text & Claims Directives
 - Factual Fidelity: Every quantitative claim made in text must match documented metrics from research-notes/ or raw log files.
 - Tone: Use objective, precise academic language (e.g., "Our experiments demonstrate a 1.7% increase in validation accuracy" instead of "Our amazing model outperforms everything").
-- LLM pitfalls: do not use common LLM generated text patterns (—, excessive boldface, citation style quirks)
+- LLM pitfalls: do not use common LLM generated text patterns (—, excessive boldface, citation style quirks).
 - Notation: Define mathematical notation cleanly using LaTeX syntax (e.g., $L_{\text{total}} = L_{\text{ce}} + \lambda L_{\text{reg}}$).
 
 ## 3. Workflow for Outputting Drafts
