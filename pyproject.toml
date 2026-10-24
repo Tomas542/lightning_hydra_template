@@ -176,6 +176,7 @@ unannotated-return = "error"
 unused-type-ignore = "error"
 unused-coroutine = "error"
 pytorch-efficiency-lints = "warn"
+missing-override-decorator = "warn"  # Module.forward
 bad-unpacking = "warn"  # init classes with hydra config using dict unpacking
 
 [tool.pytest]
