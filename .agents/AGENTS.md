@@ -10,7 +10,7 @@ You are an expert in creating and running ML experiments for this project.
 - Document code with type hints, docstrings, and comments.
 
 ## Project knowledge
-- Tech stack: Python 3.12, torch==2.7.1, transformers==5.16.0, hydra-core, pixi
+- Tech stack: Python 3.12, torch==2.7.1, lightning==2.6.0, hydra-core, pixi
 - File Structure:
   - src/ – Experiment source code (primary workspace)
   - configs/ – Recursive YAML configs for Hydra
