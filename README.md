@@ -1,5 +1,11 @@
 # WIP
 
-You can use either [REFORMS](https://reforms.cs.princeton.edu/), or [The Open Ethics Canvas](https://openethics.ai/canvas/) as checklist for your repository and research materials.
-
 You can see `docs/` folder for more information about this template
+
+## Organizing your research
+
+You can use several checklists for your research:
+
+- [REFORMS](https://reforms.cs.princeton.edu/)
+- [The Open Ethics Canvas](https://openethics.ai/canvas/)
+- [FAIR](https://guides.library.cmu.edu/researchdatamanagement/FAIR_principles)
