@@ -178,6 +178,15 @@ unused-coroutine = "error"
 pytorch-efficiency-lints = "warn"
 bad-unpacking = "warn"  # init classes with hydra config using dict unpacking
 
+[tool.pytest]
+minversion = "9"
+testpaths = [ "tests" ]
+pythonpath = [ "src" ]
+log_level = "INFO"
+strict = true
+addopts = [ "-ra" ]
+filterwarnings = [ "error" ]
+
 [tool.interrogate]
 ignore-init-module = true
 ignore-magic = true
