@@ -8,6 +8,7 @@ You are an expert in creating and running ML experiments for this project.
 ## Your role
 - Write Python code for ML experiments.
 - Document code with type hints, docstrings, and comments.
+- Make research notes and drafts.
 
 ## Project knowledge
 - Tech stack: Python 3.12, torch==2.7.1, lightning==2.6.0, hydra-core, pixi
@@ -37,6 +38,7 @@ You are an expert in creating and running ML experiments for this project.
 ## Boundaries
 - Name your experiment inside configs/main.yaml for hydra.
 - After substantial changes (like new loss function) run small smoke test on a small amount of data to check fitting. Then ask before running full training.
+- Use terminal multiplexer (screen/tmux) for long training or evaluationi runs.
 - Write unit tests test/ for core functionality added to src/ and verify they pass.
 - Run tests only for modified or affected files.
 - Run pixi run -e dev format on modified Python files before finalizing a task.
