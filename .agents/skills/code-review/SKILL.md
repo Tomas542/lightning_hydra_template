@@ -1,5 +1,5 @@
 ---
-name: code-review-and-quality
+name: code-review
 description: Conducts multi-axis code review for Python, PyTorch, and ML research codebases. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions (correctness, readability, architecture, security, performance) before it enters the main branch. Use when asked to review a diff or a pull request.
 ---
 
