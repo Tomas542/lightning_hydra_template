@@ -44,15 +44,16 @@ grype = ">=0.112.0, <1.0"
 [tool.pixi.feature.safe.tasks]
 scan_model = { cmd = "picklescan -p {{path}}; modelaudit {{path}}", args = [ "path" ] }
 scan_envs = { cmd = "grype .pixi/envs" }
+scan_env = { cmd = "grype .pixi/envs/{{env}}", args = [ "env" ] }
 [tool.pixi.pypi-dependencies]
 torch = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
 torchaudio = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/whl/cu126" }
 torchvision = { version = ">=0.22.1, <0.23", index = "https://download.pytorch.org/whl/cu126" }
 [tool.pixi.workspace]
-channels = [ "conda-forge" ]
+channels = [ "conda-forge", "https://prefix.dev/prefix-dev/prefix-labs" ]
 platforms = [ "linux-64" ]
-requires-pixi = ">=0.69.0"
-exclude-newer = "2026-06-19"
+requires-pixi = ">=0.82.1"
+exclude-newer = "2026-10-12"
 
 [tool.ruff]
 line-length = 120
