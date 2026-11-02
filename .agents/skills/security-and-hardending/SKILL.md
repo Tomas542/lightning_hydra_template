@@ -58,6 +58,7 @@ Controls bolted on without a threat model are guesses. Before hardening an ML pi
 - **Never commit API tokens, secrets, or `.env` files.**
 - **Never log sensitive data** (passwords, tokens, personal identifiers in human speech/text datasets).
 - **Never expose internal stack traces or cluster paths** in user-facing error messages.
+- **Never use npm or other package manager for other languages** since you are working with Python package.
 
 ---
 
