@@ -139,7 +139,6 @@ task-tags = [ "TODO" ]
 
 [tool.repo-review]
 ignore = [
-    "GH",    # no use of github actions
     "PP004", # uppercap python for reproducable env
     "PY006", # repo relies on prek.toml instead of .pre-commit.yaml
 ]
