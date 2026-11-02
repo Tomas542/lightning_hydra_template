@@ -14,10 +14,10 @@ Minimize methodology errors, false scientific claims, data leakage, and evaluati
 - 2a. Dataset used for training and evaluating the model along with link or DOI to uniquely identify the dataset.
 - 2b. Code used to train and evaluate the model and produce the results reported in the paper along with link or DOI to uniquely identify the version of the code used.
 - 2c. Description of the computing infrastructure used.
-    - Hardware infrastructure: CPU, GPU, RAM, disk space etc.
-   �- Operating system.
-    - Software environment: Programming language and version, documentation of all packages used along with versions and dependencies (e.g., through a requirements.txt file).
-    - An estimate of the time taken to generate the results.
+  - Hardware infrastructure: CPU, GPU, RAM, disk space etc.
+  - Operating system.
+  - Software environment: Programming language and version, documentation of all packages used along with versions and dependencies (e.g., through a requirements.txt file).
+  - An estimate of the time taken to generate the results.
 - 2d. README file which contains instructions for generating the results using the provided dataset and code.
 - 2e. Reproduction script to produce all results reported in the pape
 
@@ -40,16 +40,16 @@ Minimize methodology errors, false scientific claims, data leakage, and evaluati
 ## Modeling
 
 - 5a. Detailed descriptions of all models trained, including:
-    - All features used in the model (including any feature selection).
-    - Types of models implemented (e.g., Random Forests, Neural Networks).
-    - Loss function used.
+  - All features used in the model (including any feature selection).
+  - Types of models implemented (e.g., Random Forests, Neural Networks).
+  - Loss function used.
 - 5b. Justification for the choice of model types implemented.
 - 5c. Method for evaluating the model(s) reported in the paper, including details of train-test splits or cross-validation folds.
 - 5d. Method for selecting the model(s) reported in the paper.
 - 5e. For the model(s) reported in the paper, specify details about the hyperparameter tuning:
-    - Range of hyper-parameters used and a justification for why this range is reasonable.
-    - Method to select the best hyper-parameter configuration.
-    - Specification of all hyper-parameters used to generate results reported in the paper.
+  - Range of hyper-parameters used and a justification for why this range is reasonable.
+  - Method to select the best hyper-parameter configuration.
+  - Specification of all hyper-parameters used to generate results reported in the paper.
 - 5f. Justification that model comparisons are against appropriate baselines.
 
 ## Data leakage
