@@ -141,10 +141,8 @@ task-tags = [ "TODO" ]
 ignore = [
     "MY",    # no use of mypy, ruff + pyrefly
     "GH",    # no use of github actions
-    "PC",    # prek instead of pre-commit
     "PP004", # uppercap python for reproducable env
-    "PY006", # prek instead of pre-commit
-    "PY007", # uv doesn't have task runner
+    "PY006", # repo relies on prek.toml instead of .pre-commit.yaml
 ]
 
 [tool.interrogate]
