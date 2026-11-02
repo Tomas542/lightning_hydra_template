@@ -138,13 +138,10 @@ task-tags = [ "TODO" ]
 
 [tool.repo-review]
 ignore = [
-    "MY",    # no use of mypy, ruff + basedpyright
+    "MY",    # no use of mypy, ruff + pyrefly
     "GH",    # no use of github actions
     "PC",    # prek instead of pre-commit
-    "PP002", # no build system
     "PP004", # uppercap python for reproducable env
-    "PP301", # no pytest
-    "PY003", # no license file
     "PY006", # prek instead of pre-commit
     "PY007", # uv doesn't have task runner
 ]
@@ -169,6 +166,7 @@ style = "google"
 column_width = 120
 indent = 4
 generate_python_version_classifiers = false
+max_supported_python = "3.13"
 table_format = "long"
 collapse_tables = [ "project.authors" ]
 
@@ -180,6 +178,7 @@ project-includes = [ "notebook", "src", "tests" ]
 search-path = [ "src" ]
 site-package-path = [
     ".pixi/envs/default/lib/python3.12/site-packages",
+    ".pixi/envs/notebook/lib/python3.12/site-packages",
     ".pixi/envs/test/lib/python3.12/site-packages"
 ]
 check-unannotated-defs = true
