@@ -1,0 +1,9 @@
+_target_: data.datamodule.DummyDataModule
+batch_size: 8
+num_workers: 0
+pin_memory: false
+train_samples: 64
+val_samples: 32
+test_samples: 32
+in_features: ${in_features}
+num_classes: ${num_classes}

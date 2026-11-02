@@ -141,8 +141,8 @@ hooks = [
   },
   {
     id = "ruff-format",
-    files = "^(src|notebook|tests)/",
-    types_or = ["python", "pyi", "jupyter"],
+    files = "^(src|notebook|tests|docs)/|^README.md$",
+    types_or = ["python", "pyi", "jupyter", "markdown"],
     priority = 50,
   },
 ]

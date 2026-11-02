@@ -5,28 +5,25 @@ defaults:
   - model: default
   - criterion: cross_entropy
   - optimizer: default
+  - scheduler: default
+
+  # data
+  - datamodule: default
+  - metrics: default
 
   # lightning
+  - lightning_module: default
   - callbacks:
       - common
       - early_stopping
       - checkpointer
   - logger: csv
+  - checkpoint_io: split
   - trainer: default
 
   - hydra: default
   - _self_
 
 seed: 42
-num_classes: 1
-
-# lightning
-datamodule:
-  _target_: data.datamodule.BirdCliefDataModule
-  batch_size: 2
-  num_workers: 1
-  pin_memory: false
-
-lightning_module:
-  clief_model: ${model}
-  criterion: ${criterion}
+num_classes: 2
+in_features: 16

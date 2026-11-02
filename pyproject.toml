@@ -12,9 +12,10 @@ authors = [
 ]
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "hydra-core>=1.3,<2",
+    "hydra-core>=1.3.7,<2",
     "lightning==2.6.0",
     "python-dotenv>=1.2.4,<2",
+    "safetensors>=0.8.0,<0.9",
     "torch==2.7.1",
     "torchaudio==2.7.1",
     "torchmetrics==1.9.0",
@@ -65,7 +66,6 @@ skip-magic-trailing-comma = false
 docstring-code-line-length = 80
 docstring-code-format = true
 [tool.ruff.lint.extend-per-file-ignores]
-"src/utils.py" = [ "I001" ]  # Impots not on top for monkey patch
 "*.ipynb" = [ "T201" ]  # Print inside jupyter notebooks
 [tool.ruff.lint]
 select = [
@@ -189,7 +189,8 @@ unannotated-return = "error"
 unused-type-ignore = "error"
 unused-coroutine = "error"
 pytorch-efficiency-lints = "warn"
-missing-override-decorator = "warn"  # Module.forward
+missing-override-decorator = "ignore"  # method overrides a parent without @override
+bad-override = "ignore"  # Lightning hook stubs are typed as *args/**kwargs
 bad-unpacking = "warn"  # init classes with hydra config using dict unpacking
 
 [tool.pytest]

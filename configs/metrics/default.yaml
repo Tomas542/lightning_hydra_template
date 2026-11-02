@@ -1,0 +1,30 @@
+default:
+  splits: [train, val, test]
+
+accuracy:
+  _target_: torchmetrics.Accuracy
+  task: multiclass
+  num_classes: ${num_classes}
+  average: macro
+  splits: ${metrics.default.splits}
+
+precision:
+  _target_: torchmetrics.Precision
+  task: multiclass
+  num_classes: ${num_classes}
+  average: macro
+  splits: ${metrics.default.splits}
+
+recall:
+  _target_: torchmetrics.Recall
+  task: multiclass
+  num_classes: ${num_classes}
+  average: macro
+  splits: ${metrics.default.splits}
+
+f1:
+  _target_: torchmetrics.F1Score
+  task: multiclass
+  num_classes: ${num_classes}
+  average: macro
+  splits: ${metrics.default.splits}

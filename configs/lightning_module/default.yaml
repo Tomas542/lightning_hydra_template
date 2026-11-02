@@ -1,0 +1,6 @@
+_target_: model.lightning_model.DummyLightningModule
+_recursive_: false
+model: ${model}
+criterion: ${criterion}
+optimizer: ${optimizer}
+scheduler: ${scheduler}

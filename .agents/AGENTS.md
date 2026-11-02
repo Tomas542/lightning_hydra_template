@@ -20,7 +20,7 @@ You are an expert in creating and running ML experiments for this project.
 ## Code style
 - Use Python 3.12 type annotations for all function arguments and return types.
 - Use double quotes (") for strings and single quote (') for keys.
-- Add Google-style docstrings (description, Args, Returns, and optional Raises) to all classes, non init methods and functions.
+- Add Google-style docstrings (description, Args with types, Returns, and optional Raises) to all classes, non init methods and functions. Write each argument as ``name (type): description``.
 - Group related modules logically in subdirectories (e.g., `src/models/` for architecture, `src/data/` for DataModules and datasets).
 - Follow existing code patterns and formatting in the repository.
 

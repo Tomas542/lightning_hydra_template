@@ -1,6 +1,6 @@
 checkpointer:
-  _target_: pytorch_lightning.callbacks.ModelCheckpoint
-  monitor: '${callbacks.default.metric}'
-  mode: '${callbacks.default.mode}'
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
+  monitor: "${callbacks.default.metric}"
+  mode: "${callbacks.default.mode}"
   save_last: false
   save_top_k: 1

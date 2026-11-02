@@ -1,22 +1,31 @@
 """Torch model code."""
 
+from typing import cast
+
 from torch import Tensor, nn
 
 
-class MyModel(nn.Module):
-    """Model that do nothing."""
+class DummyModel(nn.Module):
+    """Linear classifier.
 
-    def __init__(self) -> None:
+    Args:
+        in_features (int): Feature vector length.
+        num_classes (int): Number of class logits.
+
+    """
+
+    def __init__(self, in_features: int, num_classes: int) -> None:
         super().__init__()
+        self.linear = nn.Linear(in_features, num_classes)
 
     def forward(self, features: Tensor) -> Tensor:
-        """Identity forward.
+        """Map features to class logits.
 
         Args:
-            feature (Tensor): Some tensor.
+            features (Tensor): Batch of feature vectors shaped ``(batch, in_features)``.
 
         Returns:
-            Tensor: same as feature.
+            Class logits shaped ``(batch, num_classes)``.
 
         """
-        return features
+        return cast("Tensor", self.linear(features))

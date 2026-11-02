@@ -151,7 +151,7 @@ class AudioClassifier(nn.Module):
         """Initializes the audio classifier.
 
         Args:
-            config: Configuration object containing model dimensions and dropout.
+            config (ModelConfig): Configuration object containing model dimensions and dropout.
 
         Raises:
             ValueError: If hidden dimension is not divisible by attention heads.
@@ -163,7 +163,7 @@ class AudioClassifier(nn.Module):
         """Computes forward pass and returns unnormalized class logits.
 
         Args:
-            audio_inputs: Tensor of shape (batch_size, sequence_length).
+            audio_inputs (Tensor): Tensor of shape (batch_size, sequence_length).
 
         Returns:
             Logits tensor of shape (batch_size, num_classes).

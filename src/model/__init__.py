@@ -1,3 +1,4 @@
-from .lightning_model import MyLightningModule
+from .lightning_model import DummyLightningModule
+from .model import DummyModel
 
-__all__ = ["MyLightningModule"]
+__all__ = ["DummyLightningModule", "DummyModel"]

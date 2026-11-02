@@ -1,0 +1,2 @@
+_target_: plugins.split_checkpoint.SplitCheckpointIO
+use_safetensors: true
