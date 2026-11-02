@@ -10,9 +10,9 @@ hooks = [
   { id = "check-added-large-files", priority = 2 },
   { id = "end-of-file-fixer", priority = 10 },
   { id = "trailing-whitespace", args = ["--markdown-linebreak-ext=md"], priority = 20 },
-  { id = "check-yaml", types_or = ["yaml"], priority = 30 },
+  { id = "check-yaml", types_or = ["yaml"], priority = 50 },
   { id = "check-json", types_or = ["json"], priority = 30 },
-  { id = "check-toml", types_or = ["toml"], priority = 30 },
+  { id = "check-toml", types_or = ["toml"], priority = 50 },
 ]
 
 # git specific
@@ -25,11 +25,24 @@ hooks = [
 ]
 
 # markdown
+
+[[repos]]
+repo = "https://github.com/rbubley/mirrors-prettier"
+rev = "v3.9.10"
+hooks = [
+  {
+    id = "prettier",
+    files = "^(configs/|docs/|README.md|.yamllint|)",
+    types_or = ["yaml", "markdown"],
+    priority = 30,
+  },
+]
+
 [[repos]]
 repo = "https://github.com/igorshubovych/markdownlint-cli"
 rev = "v0.49.1"
 hooks = [
-  { id = "markdownlint", priority = 30 },
+  { id = "markdownlint", priority = 40 },
 ]
 
 # shell scripts
@@ -56,7 +69,7 @@ hooks = [
     id = "pyproject-fmt",
     args = ["--no-print-diff", "--keep-full-version"],
     files = "pyproject.toml",
-    priority = 40,
+    priority = 30,
   },
 ]
 
@@ -68,24 +81,12 @@ hooks = [
     id = "validate-pyproject",
     additional_dependencies = ["validate-pyproject-schema-store[all]"],
     files = "pyproject.toml",
-    priority = 50,
+    priority = 40,
   },
 ]
 
 
 # yaml
-
-[[repos]]
-repo = "https://github.com/rbubley/mirrors-prettier"
-rev = "v3.9.10"
-hooks = [
-  {
-    id = "prettier",
-    files = "^(configs/|.yamllint)",
-    types_or = ["yaml"],
-    priority = 40,
-  },
-]
 
 [[repos]]
 repo = "https://github.com/adrienverge/yamllint.git"
@@ -96,7 +97,7 @@ hooks = [
     args= ["-c=.yamllint", "--strict"],
     files = "^(configs/|.yamllint)",
     types_or = ["yaml"],
-    priority = 50,
+    priority = 40,
   },
 ]
 
