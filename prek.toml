@@ -32,7 +32,7 @@ rev = "v3.9.10"
 hooks = [
   {
     id = "prettier",
-    files = "^(configs/|docs/|README.md|.yamllint|)",
+    files = "^(configs/|docs/|.github/|.devcontainer/|README.md|.yamllint|)",
     types_or = ["yaml", "markdown"],
     priority = 30,
   },

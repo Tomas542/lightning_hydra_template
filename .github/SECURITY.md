@@ -13,16 +13,9 @@ However, we take security seriously and will address issues related to:
 
 **Open a public issue** for security vulnerabilities:
 
-1. Provide:
-   - A clear description of the vulnerability.
-   - Steps to reproduce the issue.
-   - Any relevant code, logs, or screenshots.
-
-2. We will:
-   - Acknowledge your report.
-   - Investigate the issue and provide a fix or mitigation as soon as possible.
-   - Credit you for the report (if you wish to be credited).
-
+1. Provide a clear description of the vulnerability, steps to reproduce the issue, and any relevant code, logs, or screenshots.
+2. We will acknowledge your report, investigate the issue, and provide a fix or mitigation as soon as possible.
+   Credit you for the report (if you wish to be credited).
 
 ## AI and Security
 

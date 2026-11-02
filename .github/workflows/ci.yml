@@ -22,6 +22,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .github/requirements-cpu.txt
+      - name: Install CPU PyTorch for Pyrefly
+        run: |
+          python -m venv .pixi/envs/default
+          .pixi/envs/default/bin/python -m pip install --upgrade pip
+          .pixi/envs/default/bin/python -m pip install -r .github/requirements-cpu.txt
       - uses: j178/prek-action@5337cb91e0fa35a7ff31b9ca345126d8bbbcdf16 # v2.0.6
 
   zizmor:

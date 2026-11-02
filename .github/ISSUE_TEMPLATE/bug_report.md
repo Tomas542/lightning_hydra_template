@@ -11,6 +11,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Run '...'
 2. Use '...'
 3. See error '...'
@@ -21,10 +22,11 @@ A clear description of what you expected to happen.
 **Screenshots/Logs**
 If applicable, add screenshots or error logs to help explain your problem.
 
-**Environment**
+## Environment
+
 - OS: [e.g., Ubuntu 22.04 or Google Colab]
 - Did you use packages other than listed in pixi.lock: [yes | no]
-      - Which packages you have installed: [e.g., jax==0.10.1]
+- Which packages you have installed: [e.g., jax==0.10.1]
 
 **Additional context**
 Add any other context about the problem here.
