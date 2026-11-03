@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: .github/requirements-cpu.txt
-      - name: Install CPU PyTorch for Pyrefly
+      - name: Install CPU packages for Pyrefly
         run: |
           python -m venv .pixi/envs/default
           .pixi/envs/default/bin/python -m pip install --upgrade pip
