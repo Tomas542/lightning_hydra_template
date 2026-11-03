@@ -19,7 +19,7 @@ description: 'Prompt and workflow for generating conventional commit messages us
 4. Construct your commit message using the following XML structure.
 5. After generating your commit message, Copilot will automatically run the following command in your integrated terminal (no confirmation needed):
 
-```bash
+```shell
 git commit -m "type(scope): description"
 ```
 

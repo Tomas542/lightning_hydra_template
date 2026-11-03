@@ -28,19 +28,19 @@ Before asking to run a full training job, execute the following plan-validate-ex
 
 If new local weights were downloaded:
 
-```bash
+```shell
 pixi run -e safe scan_model /path/to/model
 ```
 
 If dependencies were touched:
 
-```bash
+```shell
 pixi run -e safe scan_envs
 ```
 
 ### Lint and Format check:
 
-```bash
+```shell
 pixi run -e dev format <path_to_modified_files>
 pixi run -e dev check_fix <path_to_modified_files>
 ```
@@ -48,7 +48,7 @@ pixi run -e dev check_fix <path_to_modified_files>
 ### Execute Smoke Test:
 Run a short sanity check on a tiny slice of data or 1–2 epochs/steps to verify loss computation, gradient backpropagation, and memory allocation:
 
-```bash
+```shell
 pixi run python src/train.py trainer.fast_dev_run=True
 ```
 ## Launch Confirmation
