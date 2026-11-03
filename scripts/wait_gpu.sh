@@ -284,6 +284,6 @@ else
     log "GPU ${gpu} has no compute process."
 fi
 
-cd "$ROOT" || exit
+cd "$ROOT" || exit 1
 log "Starting on GPU ${gpu}: pixi run $(quoted_command "$@")"
 exec env CUDA_VISIBLE_DEVICES="$gpu" pixi run "$@"
