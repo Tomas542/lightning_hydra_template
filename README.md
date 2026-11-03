@@ -19,6 +19,56 @@ GitHub Actions in `.github/workflows/` are there for a public repository.
 On a private repository they spend the account's Actions minutes, which are limited by the GitHub plan.
 Remove `.github/workflows/` when this project is private.
 
+## Project structure
+
+The directory structure looks like this:
+
+```text
+├── .agents                   <- Agent instructions and skills
+│   ├── skills                   <- Experiment, review, and research skills
+│   └── AGENTS.md                <- Instructions for coding agents
+├── .devcontainer             <- Dev container definition
+├── .github                   <- GitHub Actions, Dependabot, and issue templates
+├── configs                   <- Hydra configs
+│   ├── callbacks                <- Callback configs
+│   ├── checkpoint_io            <- Split checkpoint plugin config
+│   ├── criterion                <- Loss configs
+│   ├── datamodule               <- Datamodule configs
+│   ├── hydra                    <- Hydra output path
+│   ├── lightning_module         <- Lightning module configs
+│   ├── logger                   <- Logger configs
+│   ├── metrics                  <- Metric configs
+│   ├── model                    <- Model configs
+│   ├── optimizer                <- Optimizer configs
+│   ├── paths                    <- Project path configs
+│   ├── scheduler                <- Scheduler configs
+│   ├── trainer                  <- Trainer configs
+│   └── main.yaml                <- Main config
+├── datasets                  <- Project data
+├── docs                      <- Notes on the template, ethics, and repo layout
+├── logs                      <- Logs from Hydra and Lightning
+├── notebook                  <- Jupyter notebooks
+├── scripts                   <- Shell scripts
+├── src                       <- Source code
+│   ├── data                     <- Dataset and datamodule
+│   ├── model                    <- Model and Lightning module
+│   ├── plugins                  <- Checkpoint plugin
+│   ├── eval.py                  <- Run evaluation
+│   ├── train.py                 <- Run training
+│   └── utils.py                 <- Trainer, metrics, and logger helpers
+├── tests                     <- Tests
+├── weights                   <- Local model weights
+├── .env.example              <- Example environment variables
+├── .gitignore                <- Files ignored by git
+├── AGENTS.md                 <- Link to `.agents/AGENTS.md`
+├── Dockerfile                <- Container image
+├── LICENSE                   <- License
+├── pixi.lock                 <- Locked Pixi environment
+├── prek.toml                 <- prek hooks
+├── pyproject.toml            <- Project metadata, Pixi, Ruff, and Pyrefly
+└── README.md
+```
+
 ## Organizing your research
 
 You can use several checklists for your research, that are listed in the `docs/ai-ethics`:
