@@ -125,7 +125,7 @@ ignore = [
     "ANN002",  # unannotated *args
     "ANN003",  # unannotated **kwargs
     "ANN401",  # allow typing.Any
-    "D211",    # blank line before class
+    "D210",    # blank line before class
     "D213",    # docstring should start from the first line
     "E741",    # ambigous names, like l and other
     "N803",    # Argument names not only lowercase
