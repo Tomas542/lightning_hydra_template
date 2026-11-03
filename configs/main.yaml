@@ -28,3 +28,7 @@ seed: 42
 exp_name: dummy
 num_classes: 2
 in_features: 16
+
+# Split checkpoint directory, or the ``.ckpt`` path Lightning recorded.
+# Training resumes from it when set. Evaluation loads its weights and writes ``test_metrics.json`` there.
+ckpt_path: null
