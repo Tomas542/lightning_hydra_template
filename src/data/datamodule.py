@@ -37,6 +37,7 @@ class DummyDataModule(L.LightningDataModule):
         self,
         batch_size: int,
         num_workers: int,
+        *,
         pin_memory: bool,
         train_samples: int,
         val_samples: int,

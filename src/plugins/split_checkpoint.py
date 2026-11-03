@@ -48,7 +48,7 @@ def _atomic_torch_save(checkpoint: dict[str, Any], path: Path) -> None:
     temporary.replace(path)
 
 
-def _torch_load(path: Path, map_location: Any, weights_only: bool | None) -> dict[str, Any]:
+def _torch_load(path: Path, map_location: Any, *, weights_only: bool | None) -> dict[str, Any]:
     """Load a PyTorch checkpoint dictionary.
 
     Args:
@@ -189,7 +189,7 @@ class SplitCheckpointIO(TorchCheckpointIO):
 
     """
 
-    def __init__(self, use_safetensors: bool = True) -> None:
+    def __init__(self, *, use_safetensors: bool = True) -> None:
         super().__init__()
         self.use_safetensors = use_safetensors
 
@@ -244,6 +244,7 @@ class SplitCheckpointIO(TorchCheckpointIO):
         self,
         path: str | Path,
         map_location: Callable[..., Any] | None = _default_map_location,
+        *,
         weights_only: bool | None = None,
     ) -> dict[str, Any]:
         """Load a split checkpoint back into one Lightning dictionary.
@@ -276,14 +277,14 @@ class SplitCheckpointIO(TorchCheckpointIO):
         if safetensors_path.is_file():
             checkpoint["state_dict"] = _place_weights(_load_safetensors(safetensors_path), map_location)
         elif torch_path.is_file():
-            checkpoint.update(_torch_load(torch_path, map_location, weights_only))
+            checkpoint.update(_torch_load(torch_path, map_location, weights_only=weights_only))
         else:
             message = f"Model weights file not found in {checkpoint_dir}"
             raise FileNotFoundError(message)
 
         training_path = checkpoint_dir / "training_states.pth"
         if training_path.is_file():
-            checkpoint.update(_torch_load(training_path, map_location, weights_only))
+            checkpoint.update(_torch_load(training_path, map_location, weights_only=weights_only))
         return checkpoint
 
     def remove_checkpoint(self, path: str | Path) -> None:

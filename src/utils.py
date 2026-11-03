@@ -1,3 +1,5 @@
+"""Helpers for the trainer, metrics, and loggers."""
+
 import logging
 import sys
 from typing import Any, Literal, cast
@@ -104,5 +106,13 @@ def get_metrics(cfg: DictConfig) -> dict[str, MetricCollection]:
 
 
 def get_loggers(cfg: DictConfig) -> list[Logger]:
-    """Parses loggers from config"""
+    """Instantiate loggers in a Hydra config group.
+
+    Args:
+        cfg (DictConfig): Logger group. ``default`` holds shared settings. Each other entry is one logger.
+
+    Returns:
+        Instantiated loggers, excluding the ``default`` node.
+
+    """
     return [hydra.utils.instantiate(cfg[name]) for name in cfg if name != "default"]

@@ -25,6 +25,7 @@ class DummyDataset(Dataset[tuple[np.ndarray, np.int64]]):
         self.data = means[self.labels] + 0.1 * noise
 
     def __len__(self) -> int:
+        """Return the number of generated samples."""
         return self.count
 
     def __getitem__(self, index: int) -> tuple[np.ndarray, np.int64]:

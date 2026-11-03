@@ -135,7 +135,7 @@ class DummyLightningModule(L.LightningModule):
         self._log_split("val", self.metrics["val"], loss, preds, labels)
         return loss
 
-    def test_step(self, batch: tuple[Tensor, Tensor], _batch_idx: int) -> Tensor:
+    def test_step(self, batch: tuple[Tensor, Tensor], _batch_idx: int) -> Tensor:  # noqa: PT019
         """Compute the test loss and update test metrics.
 
         Args:

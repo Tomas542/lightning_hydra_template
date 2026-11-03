@@ -42,7 +42,7 @@ torchaudio = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/
 torchvision = { version = ">=0.22.1, <0.23", index = "https://download.pytorch.org/whl/cu126" }
 [tool.pixi.feature.dev.tasks]
 fix = { cmd = "ruff check {{path}} --fix", args = [ "path" ] }
-check_fix = { cmd = "ruff check {{path}} --fix | pyrefly check {{path}}", args = [ "path" ] }
+check_fix = { cmd = "ruff check {{path}} --fix && pyrefly check {{path}}", args = [ "path" ] }
 format = { cmd = "ruff check {{path}} --fix && ruff format {{path}}", args = [ "path" ] }
 [tool.pixi.feature.safe.dependencies]
 grype = ">=0.120.1, <1.0"
@@ -84,13 +84,17 @@ select = [
     "E",      # Errors
     "EM",     # Raising exceptions
     "ERA",    # Commented code
+    "EXE",    # Executable
     "F",      # Formats
     "FA",     # future annotations
+    "FBT",    # Boolean trap
+    "FIX",    # fixme statements
     "FURB",   # Refurbishing
     "G",      # Logging formatting
     "I",      # Imports
     "ICN",    # Use common import conventions
     "INP",    # __init__.py required
+    "INT",    # __gettext__
     "ISC",    # String concatenations
     "LOG",    # Logging
     "NPY",    # NumPy things
@@ -102,6 +106,7 @@ select = [
     "PLE",    # Errors
     "PLR",    # Refactor
     "PLW",    # Warnings
+    "PT",     # Pytest
     "PTH",    # Pathlib instead of os.path
     "PYI",    # Type hints stubs
     "Q",      # Quotes
@@ -114,9 +119,10 @@ select = [
     "SLOT",   # __slot__ in certain classes
     "T10",    # No debugger calls in commited code
     "T20",    # No prints, only loggings
-    "TC",     # type annotations
+    "TC",     # Type annotations
     "TD",     # TODO tags
-    "TID253", # module level imports
+    "TID253", # Module level imports
+    "TRY",    # Tryceratops
     "UP",     # Warn if certain things can changed due to newer Python versions
     "W",      # Whitespace warnings
     "YTT",    # flake8-2020
@@ -125,7 +131,8 @@ ignore = [
     "ANN002",  # unannotated *args
     "ANN003",  # unannotated **kwargs
     "ANN401",  # allow typing.Any
-    "D210",    # blank line before class
+    "D107",    # docstring in __init__
+    "D203",    # blank line before class
     "D213",    # docstring should start from the first line
     "E741",    # ambigous names, like l and other
     "N803",    # Argument names not only lowercase
