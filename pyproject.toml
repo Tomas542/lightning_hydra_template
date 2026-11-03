@@ -42,6 +42,7 @@ torchaudio = { version = ">=2.7.1, <2.8", index = "https://download.pytorch.org/
 torchvision = { version = ">=0.22.1, <0.23", index = "https://download.pytorch.org/whl/cu126" }
 [tool.pixi.feature.dev.tasks]
 fix = { cmd = "ruff check {{path}} --fix", args = [ "path" ] }
+check_fix = { cmd = "ruff check {{path}} --fix | pyrefly check {{path}}", args = [ "path" ] }
 format = { cmd = "ruff check {{path}} --fix && ruff format {{path}}", args = [ "path" ] }
 [tool.pixi.feature.safe.dependencies]
 grype = ">=0.120.1, <1.0"
@@ -77,7 +78,8 @@ select = [
     "C4",     # Catch incorrect use of comprehensions
     "C90",    # Statement complexity
     "COM",    # Commas
-    "DOC",    # Docsting fomatting
+    "D",      # Docstyle formatting
+    "DOC",    # Docsting formatting
     "DTZ",    # Datetime use
     "E",      # Errors
     "EM",     # Raising exceptions
@@ -123,6 +125,8 @@ ignore = [
     "ANN002",  # unannotated *args
     "ANN003",  # unannotated **kwargs
     "ANN401",  # allow typing.Any
+    "D211",    # blank line before class
+    "D213",    # docstring should start from the first line
     "E741",    # ambigous names, like l and other
     "N803",    # Argument names not only lowercase
     "NPY002",  # numpy.random allowed
