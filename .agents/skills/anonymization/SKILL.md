@@ -19,13 +19,17 @@ A systematic procedure for preparing a research repository for peer-review suppl
 ## Execution Workflow
 
 ### Step 1: Determine Anonymization Mode
+
 Ask or confirm the target mode:
 1. **`supplementary` Mode:** Scans **every** file in the repository (including untracked files, local configs, and build outputs). Prepares notes for removing the `.git` directory.
 2. **`public` Mode:** Scans only **Git-tracked** files (`git ls-files`) to avoid leaking uncommitted scratch work, leaving `.git` intact.
 
+Verify from the user, whether they need to submit `logs/`. In case of yes, remove configs and files with metrics from `.gitignore`.
+
 ---
 
 ### Step 2: Absolute Path Scanning & Replacement
+
 1. **Scan for Hardcoded Absolute Paths:**
    - Linux/macOS paths: `/home/username/`, `/Users/username/`, `/mnt/`, `/nfs/`, `/scratch/`, `/data/`
    - Windows paths: `C:\Users\`, `D:\`
@@ -39,15 +43,19 @@ Ask or confirm the target mode:
 ---
 
 ### Step 3: Update `README.md` (Getting Started / Setup)
+
 - Locate the **Getting Started** or **Configuration** section of `README.md`.
 - Add a dedicated subsection instructing users how to configure their local environment paths:
+
 ```markdown
 ### Environment Configuration
 Before running training or evaluation scripts, update the placeholder paths in your configuration files or environment variables:
 - `DATA_ROOT`: Point to your local dataset directory.
 - `CHECKPOINT_DIR`: Point to your model weight storage directory.
 ```
+
 ### Step 4: Audit Non-Anonymous Entities (ANON.md)
+
 Create or update ANON.md in the root of the project to document entities that require manual review or cleanup before publication:
 
 - **Nicknames & Personal Names:** Authors, lab members, or system usernames found in code comments, docstrings, or commit logs.
@@ -62,13 +70,16 @@ Create or update ANON.md in the root of the project to document entities that re
 The following items were identified during the automated repository audit and require manual verification or removal before final publication:
 
 ## 1. Non-English Comments / Localized Text
+
 - [ ] `src/data/loader.py:45` — Comment in Cyrillic: `# TODO: дописать проверку сэмплов`
 - [ ] `src/models/audio.py:112` — Log message in local language
 
 ## 2. Personal Identifiers & Nicknames
+
 - [ ] `configs/train.yaml:12` — Author username found in default logging path (`/home/artem/`)
 
 ## 3. Internal Endpoints / Infrastructure
+
 - [ ] `scripts/submit.sh:8` — Internal cluster scheduler address (`slurm.internal.lab`)
 ```
 
