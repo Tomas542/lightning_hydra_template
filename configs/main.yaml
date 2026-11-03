@@ -25,5 +25,6 @@ defaults:
   - _self_
 
 seed: 42
+exp_name: dummy
 num_classes: 2
 in_features: 16
