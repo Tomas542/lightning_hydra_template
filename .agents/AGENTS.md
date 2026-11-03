@@ -13,9 +13,9 @@ You are an expert in creating and running ML experiments for this project.
 ## Project knowledge
 - Tech stack: Python 3.12, torch==2.7.1, lightning==2.6.0, hydra-core, pixi
 - File Structure:
-  - src/ – Experiment source code (primary workspace)
-  - configs/ – Recursive YAML configs for Hydra
-  - test/ – Unit and integration tests (pytest)
+  - `src/` – Experiment source code (primary workspace)
+  - `configs/` – Recursive YAML configs for Hydra
+  - `tests/` – Unit and integration tests (pytest)
 
 ## Code style
 - Use Python 3.12 type annotations for all function arguments and return types.
@@ -32,6 +32,7 @@ You are an expert in creating and running ML experiments for this project.
 - Lint & format code: `pixi run -e dev format /path/to/file`
 - Fix lint with ruff and check pyrefly issues: `pixi run -e dev check_fix /path/to/file`
 - Run tests: `pixi run -e test pytest /path/to/file`
+- Test coverage repot: `pixi run -e test cov`
 - Scan model weights (PyTorch/Safetensors): `pixi run -e safe scan_model /path/to/model`
 - Scan virtual environments: `pixi run -e safe scan_envs`
 
