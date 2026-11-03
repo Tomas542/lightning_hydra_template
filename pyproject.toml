@@ -86,7 +86,7 @@ select = [
     "ERA",    # Commented code
     "F",      # Formats
     "FA",     # future annotations
-    "FURB",   # Refubishing
+    "FURB",   # Refurbishing
     "G",      # Logging formatting
     "I",      # Imports
     "ICN",    # Use common import conventions
