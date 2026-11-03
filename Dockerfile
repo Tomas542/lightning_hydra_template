@@ -1,4 +1,4 @@
-FROM ghcr.io/prefix-dev/pixi:0.68.1-trixie-slim
+FROM ghcr.io/prefix-dev/pixi:0.82.1-trixie-slim
 
 RUN apt update && apt upgrade -y \
       && rm -rf /var/lib/apt/lists/*

@@ -1,5 +1,5 @@
-FROM mcr.microsoft.com/devcontainers/base:2.1.9-trixie
-ARG PIXI_VERSION=v0.69.0
+FROM mcr.microsoft.com/devcontainers/base:2.2.3-trixie
+ARG PIXI_VERSION=v0.82.1
 
 RUN curl -L -o /usr/local/bin/pixi -fsSL --compressed "https://github.com/prefix-dev/pixi/releases/download/${PIXI_VERSION}/pixi-$(uname -m)-unknown-linux-musl" \
     && chmod +x /usr/local/bin/pixi \
