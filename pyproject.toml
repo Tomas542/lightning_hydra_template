@@ -50,6 +50,8 @@ grype = ">=0.120.1, <1.0"
 scan_model = { cmd = "picklescan -p {{path}}; modelaudit {{path}}", args = [ "path" ] }
 scan_envs = { cmd = "grype .pixi/envs" }
 scan_env = { cmd = "grype .pixi/envs/{{env}}", args = [ "env" ] }
+[tool.pixi.feature.test.tasks]
+cov = "pytest --cov-report=term-missing tests/"
 [tool.pixi.environments]
 default = { solve-group = "default" }
 dev = { features = [ "dev" ], solve-group = "default" }
@@ -211,3 +213,6 @@ minversion = "9"
 pythonpath = [ "src" ]
 strict = true
 testpaths = [ "tests" ]
+
+[tool.coverage.run]
+source = [ "src" ]
