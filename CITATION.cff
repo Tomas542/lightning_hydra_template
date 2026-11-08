@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software or research codebase, please cite it as below."
+authors:
+  - family-names: "Iudin"
+    given-names: "Artyom"
+title: "And another one lightning hydra template"
+version: "1.0.1"
+doi: "10.5281/zenodo.24057788"
+date-released: 2026-11-08
+url: "https://github.com/Tomas542/lightning_hydra_template"

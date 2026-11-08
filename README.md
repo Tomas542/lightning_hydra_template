@@ -84,3 +84,19 @@ You can use several checklists for your research, that are listed in the `docs/a
 - [REFORMS](https://reforms.cs.princeton.edu/)
 - [The Open Ethics Canvas](https://openethics.ai/canvas/)
 - [FAIR](https://guides.library.cmu.edu/researchdatamanagement/FAIR_principles)
+
+## Cite
+
+If you found this repo useful, you can cite it:
+
+```bibtex
+@software{iudin2026lightning_hydra,
+  author       = {Iudin, Artyom},
+  title        = {And another one lightning hydra template},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {1.0.1},
+  doi          = {10.5281/zenodo.24057788},
+  url          = {https://doi.org/10.5281/zenodo.24057788}
+}
+```
