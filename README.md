@@ -46,6 +46,10 @@ The directory structure looks like this:
 │   └── main.yaml                <- Main config
 ├── datasets                  <- Project data
 ├── docs                      <- Notes on the template, ethics, and repo layout
+│   ├── ai-ethics                <- REFORMS, FAIR, and Open Ethics checklists
+│   ├── structure                <- Sections of the repo, prek, and pyproject
+│   ├── another_template.md      <- Comparison with other templates
+│   └── usecase.md               <- How to adopt and tighten the template
 ├── logs                      <- Logs from Hydra and Lightning
 ├── notebook                  <- Jupyter notebooks
 ├── scripts                   <- Shell scripts
@@ -53,9 +57,13 @@ The directory structure looks like this:
 │   ├── data                     <- Dataset and datamodule
 │   ├── model                    <- Model and Lightning module
 │   ├── plugins                  <- Checkpoint plugin
+│   ├── utils                    <- Trainer, metrics, and logger helpers
+│   │   ├── checkpoint.py           <- Checkpoint path resolution
+│   │   ├── logger.py               <- Logger construction and tip filter
+│   │   ├── metrics.py              <- Per-split metric collections
+│   │   └── trainer.py              <- Accelerator and callback helpers
 │   ├── eval.py                  <- Run evaluation
-│   ├── train.py                 <- Run training
-│   └── utils.py                 <- Trainer, metrics, and logger helpers
+│   └── train.py                 <- Run training
 ├── tests                     <- Tests
 ├── weights                   <- Local model weights
 ├── .env.example              <- Example environment variables
