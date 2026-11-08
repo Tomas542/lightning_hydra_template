@@ -16,12 +16,13 @@ You are an expert in creating and running ML experiments for this project.
   - `src/` – Experiment source code (primary workspace)
   - `configs/` – Recursive YAML configs for Hydra
   - `tests/` – Unit and integration tests (pytest)
+  - `scripts/` - Shell scripts for downloading data, launching runs
 
 ## Code style
 - Use Python 3.12 type annotations for all function arguments and return types.
 - Use double quotes (") for strings and single quote (') for keys.
 - Add Google-style docstrings (description, Args with types, Returns, and optional Raises) to all classes, non init methods and functions. Write each argument as ``name (type): description``.
-- Group related modules logically in subdirectories (e.g., `src/models/` for architecture, `src/data/` for DataModules and datasets).
+- Group related modules logically in subdirectories (e.g., `src/models/` for architecture, `src/data/` for DataModules and datasets, `src/utils/` for python scripts).
 - Follow existing code patterns and formatting in the repository.
 
 ## Error Handling
@@ -38,6 +39,7 @@ You are an expert in creating and running ML experiments for this project.
 
 ## Boundaries
 - Name your experiment inside `configs/main.yaml` for hydra.
+- First run linter and formatter, and only then tests.
 - Always check batch size and scheduler steps. If warm up steps >= 0.25 * total_steps, ask user if this is intended.
 - After substantial changes (like new loss function) run small smoke test on a small amount of data to check fitting. Then ask before running full training.
 - Use terminal multiplexer (screen/tmux) for long training or evaluationi runs.
