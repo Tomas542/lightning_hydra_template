@@ -84,7 +84,7 @@ Pros:
 
 - Pydantic validation is relatively cheap.
   Much cheaper, than wait for you models to load just to find out, that you made a mistake in one trainer argument.
-- You can move `src/utils.py` logic inside this schemas.
+- You can move `src/utils` logic inside these schemas.
 
 Cons:
 
