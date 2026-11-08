@@ -22,7 +22,8 @@ class DummyLightningModule(L.LightningModule):
         optimizer (DictConfig): Optimizer config node. Instantiated in ``configure_optimizers``.
         scheduler (DictConfig): Scheduler hyperparameters.
         metrics (dict[str, torchmetrics.MetricCollection]): Metric collections keyed by split name:
-            ``train``, ``val``, and ``test``.
+            ``train``, ``val``, and ``test``. Stored in a ``ModuleDict`` as ``train_metrics``, ``val_metrics``, and
+            ``test_metrics`` because ``nn.Module`` already uses the name ``train``.
 
     """
 
@@ -39,9 +40,7 @@ class DummyLightningModule(L.LightningModule):
         self.criterion = cast("nn.Module", hydra.utils.instantiate(criterion))
         self.optimizer_cfg = optimizer
         self.scheduler_cfg = scheduler
-        self.metrics = dict(metrics)
-        for split, collection in self.metrics.items():
-            self.add_module(f"{split}_metrics", collection)
+        self.metrics = nn.ModuleDict({f"{split}_metrics": collection for split, collection in metrics.items()})
 
     def forward(self, features: Tensor) -> Tensor:
         """Delegate to the wrapped model.
@@ -68,6 +67,25 @@ class DummyLightningModule(L.LightningModule):
         features, labels = batch
         return self(features), labels
 
+    def _split_metrics(self, split: str) -> torchmetrics.MetricCollection:
+        """Return the metric collection registered for one split.
+
+        Args:
+            split (str): Split name: ``train``, ``val``, or ``test``.
+
+        Returns:
+            Metric collection stored under ``{split}_metrics``.
+
+        Raises:
+            TypeError: The registered module is not a metric collection.
+
+        """
+        collection = self.metrics[f"{split}_metrics"]
+        if not isinstance(collection, torchmetrics.MetricCollection):
+            message = f"Metrics for split {split} are not a MetricCollection."
+            raise TypeError(message)
+        return collection
+
     def _log_split(
         self,
         split: str,
@@ -89,15 +107,12 @@ class DummyLightningModule(L.LightningModule):
         metrics.update(preds, labels)
         batch_size = labels.shape[0]
         self.log(f"{split}_loss", loss, on_step=False, on_epoch=True, prog_bar=True, batch_size=batch_size)
-        for name, metric in metrics.items():
-            self.log(
-                f"{split}_{name}",
-                metric,
-                on_step=False,
-                on_epoch=True,
-                prog_bar=name == "f1",
-                batch_size=batch_size,
-            )
+        logged = {f"{split}_{name}": metric for name, metric in metrics.items()}
+        f1_name = f"{split}_f1"
+        if f1_name in logged:
+            self.log(f1_name, logged.pop(f1_name), on_step=False, on_epoch=True, prog_bar=True, batch_size=batch_size)
+        if logged:
+            self.log_dict(logged, on_step=False, on_epoch=True, batch_size=batch_size)
 
     def training_step(self, batch: tuple[Tensor, Tensor], _batch_idx: int) -> Tensor:
         """Compute the training loss and update train metrics.
@@ -112,7 +127,7 @@ class DummyLightningModule(L.LightningModule):
         """
         preds, labels = self._shared_step(batch)
         loss = cast("Tensor", self.criterion(preds, labels))
-        self._log_split("train", self.metrics["train"], loss, preds, labels)
+        self._log_split("train", self._split_metrics("train"), loss, preds, labels)
         return loss
 
     def validation_step(
@@ -132,7 +147,7 @@ class DummyLightningModule(L.LightningModule):
         """
         preds, labels = self._shared_step(batch)
         loss = cast("Tensor", self.criterion(preds, labels))
-        self._log_split("val", self.metrics["val"], loss, preds, labels)
+        self._log_split("val", self._split_metrics("val"), loss, preds, labels)
         return loss
 
     def test_step(self, batch: tuple[Tensor, Tensor], _batch_idx: int) -> Tensor:  # noqa: PT019
@@ -148,7 +163,7 @@ class DummyLightningModule(L.LightningModule):
         """
         preds, labels = self._shared_step(batch)
         loss = cast("Tensor", self.criterion(preds, labels))
-        self._log_split("test", self.metrics["test"], loss, preds, labels)
+        self._log_split("test", self._split_metrics("test"), loss, preds, labels)
         return loss
 
     def configure_optimizers(self) -> OptimizerLRScheduler:
