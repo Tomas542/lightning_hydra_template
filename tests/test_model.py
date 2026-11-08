@@ -67,7 +67,9 @@ def test_split_step_returns_a_finite_loss(method_name: str, split: str) -> None:
     features = torch.randn(4, 4)
     labels = torch.randint(0, 2, (4,))
     loss: Tensor = getattr(module, method_name)((features, labels), 0)
-    accuracy = module.metrics[split]["accuracy"].compute()
+    collection = module.metrics[f"{split}_metrics"]
+    assert isinstance(collection, MetricCollection)
+    accuracy = collection["accuracy"].compute()
 
     assert loss.ndim == 0
     assert torch.isfinite(loss)

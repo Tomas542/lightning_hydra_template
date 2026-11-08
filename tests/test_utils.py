@@ -10,7 +10,6 @@ from lightning.pytorch.loggers import CSVLogger
 from omegaconf import OmegaConf
 
 from utils import (
-    _in_notebook,
     get_accelerator_devices_strategy,
     get_callbacks,
     get_loggers,
@@ -18,6 +17,7 @@ from utils import (
     resolve_ckpt_path,
     silence_lightning_tips,
 )
+from utils.trainer import _in_notebook
 
 
 def test_resolve_ckpt_path_is_empty_when_unset(tmp_path: Path) -> None:
