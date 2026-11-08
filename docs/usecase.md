@@ -56,20 +56,11 @@ Like `PyGrep` hooks checks only thing that `ruff` with `PGH` can't.
 There are several steps you can do to improve overall code quality:
 
 - Remove exceptions in `tool.ruff.lint` section;
-
 - Increase docstring coverage of code in `tool.interrogate` section;
-
-- Add tests with `unittest` or `pytest` and remove the `PY005` rule from `tool.repo-review`.
-- If you choose `pytest`, add the `PT` rules in `tool.ruff.lint` and remove the `PP301` exception in `tool.repo-review`.
-
 - If you use `async` or `FastAPI`, you can add it's rules either;
-
 - Remove rules for `NumPy` or `Pandas` if you don't use them;
-
 - Add `beartype` runtime type checking. Additionally you can add `jaxtyping` to enhance it with shape checking;
-
 - Some type checkers can provide additional code checks, that you'd like to apply;
-
 - Replace PyPI packages with Conda. This is the most opinionated change: Conda also ships system dependencies,
   so the environment is more platform agnostic.
   PyPI, on the other hand, lets you run the project with other tools, such as `uv` or `poetry`.
