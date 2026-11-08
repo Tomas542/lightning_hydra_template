@@ -96,6 +96,8 @@ Verify that the `.git` folder is excluded or provide explicit shell commands for
 rm -rf .git .gitignore .github/
 ```
 
+Same for `__pycache__` and other files and folders, that are created during run.
+
 ## Verification Checklist
 
 Before finalizing the package or push:
