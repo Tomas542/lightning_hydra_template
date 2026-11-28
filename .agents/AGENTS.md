@@ -56,5 +56,6 @@ You are an expert in creating and running ML experiments for this project.
 - Never write down CUDA_VISIBLE_DEVICES, HTTP_PROXY or HTTPS_PROXY, `--as-is` and GPU restrictions to README.md - this is a development information that is not required for reproduction.
 - Do not modify metric evaluation functions or core test suites without explicit instructions.
 - Never report a timed-out, interrupted, or incomplete test run as passed.
-- Never commit secrets, API keys, credentials, or .env files.
-- Do not download any package with npm - you are working with Python ecosystem only with pixi.
+- Never commit secrets, API keys, credentials, or `.env` files.
+- Do not download any package with npm - you are working with Python ecosystem only with `pixi`.
+- Avoid `from __future__ import annotations` as antipattern.
