@@ -146,3 +146,4 @@ printf 'Set author to %s %s\n' "$first" "$second"
 
 cd "$ROOT" || exit 1
 pixi install
+printf 'If you find this repository useful, cite it with the BibTeX block in README.md or with CITATION.cff, and add a star on GitHub: https://github.com/Tomas542/lightning_hydra_template\n'
