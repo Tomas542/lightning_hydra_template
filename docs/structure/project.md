@@ -74,12 +74,18 @@ Hydra and Lightning output. Git does not track the files inside this directory.
 
 ## notebook
 
-Jupyter notebooks. The `nb-clean` hook removes empty cells and keeps outputs.
+Kaggle notebooks. Create one on Kaggle, then clone this repository into `/kaggle/working`.
+
+- `kaggle_gpu.ipynb` launches on T4 x2 and sets `trainer.max_time`.
+- `kaggle_tpu.ipynb` launches on a TPU v3-8.
+
+The `nb-clean` hook removes empty cells and keeps outputs.
 
 ## scripts
 
 - `setup.sh` asks for a first name, a second name, and an optional email, writes them into `pyproject.toml`, and runs `pixi install`.
 - `wait_gpu.sh` waits until a process exits or a GPU is idle, then starts the given command with `pixi`.
+- `occupy_gpu.sh` stops compute processes on one GPU except the PIDs given on the command line.
 
 ## src
 

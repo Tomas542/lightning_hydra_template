@@ -10,7 +10,9 @@ Hatchling builds the package.
 
 ## project
 
-The distribution name is `my-project`, version `0.1`. Python is `>=3.12,<3.13`.
+The distribution name is `my-project`, version `2026.11.28` (`YYYY.0M.0D`). Python is `>=3.12,<3.13`.
+The license expression is `MIT`, and `license-files` includes `LICENSE`.
+Keywords and classifiers are the general research set: scientific computing, machine learning, and Python 3.12.
 Runtime dependencies are `hydra-core`, `lightning==2.6.0`, `python-dotenv`, `safetensors`,
 and the Torch 2.7.1 stack: `torch`, `torchaudio`, `torchvision`, and `torchmetrics`.
 
