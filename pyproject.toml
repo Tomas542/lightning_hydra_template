@@ -69,7 +69,7 @@ skip-magic-trailing-comma = false
 docstring-code-line-length = 80
 docstring-code-format = true
 [tool.ruff.lint.extend-per-file-ignores]
-"*.ipynb" = [ "T201" ]  # Print inside jupyter notebooks
+"*.ipynb" = [ "E501", "T201" ]  # Kaggle shell lines are one line; print in notebooks
 [tool.ruff.lint]
 select = [
     "A",      # Built-ins shadowing
