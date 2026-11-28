@@ -18,9 +18,10 @@ When writing or updating a research note, follow this structure:
 ```markdown
 # Experiment Note: [Short Descriptive Title]
 
-**Date:** YYYY-MM-DD  
+**Experiment Name:** [Insert Unique Name]
+**Date:** YYYY-MM-DD
 **Log dir:** `logs/runs/{date}/{exp_name}`
-**Git Commit / Hash:** [Insert commit hash or status]  
+**Config Hash:** [Insert Hash]
 
 ## 1. Objective & Hypothesis
 - **Goal:** Clear description of what is being tested.

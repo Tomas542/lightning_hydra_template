@@ -2,7 +2,8 @@
 
 **Experiment Name:** [Insert Unique Name]
 **Date:** YYYY-MM-DD
-**Git Commit Hash:** [Insert Hash]
+**Log dir:** `logs/runs/{date}/{exp_name}`
+**Config Hash:** [Insert Hash]
 
 ---
 
