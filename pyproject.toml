@@ -4,7 +4,7 @@ requires = [ "hatchling" ]
 
 [project]
 name = "my-project"
-version = "0.1"
+version = "2026.11.28"
 description = ""
 readme = "README.md"
 authors = [

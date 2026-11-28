@@ -19,6 +19,11 @@ GitHub Actions in `.github/workflows/` are there for a public repository.
 On a private repository they spend the account's Actions minutes, which are limited by the GitHub plan.
 Remove `.github/workflows/` when this project is private.
 
+## Version
+
+`pyproject.toml` uses `YYYY.0M.0D`: the date, with a zero-padded month and day, such as `2026.11.28`.
+A dated version is a research cut. It can mark a submission, a rebuttal, or the checkpoint from that day.
+
 ## Project structure
 
 The directory structure looks like this:
@@ -52,6 +57,8 @@ The directory structure looks like this:
 │   └── usecase.md               <- How to adopt and tighten the template
 ├── logs                      <- Logs from Hydra and Lightning
 ├── notebook                  <- Jupyter notebooks
+│   ├── kaggle_gpu.ipynb         <- Kaggle T4 x2 launch
+│   └── kaggle_tpu.ipynb         <- Kaggle TPU v3-8 launch
 ├── scripts                   <- Shell scripts
 ├── src                       <- Source code
 │   ├── data                     <- Dataset and datamodule
@@ -84,6 +91,12 @@ You can use several checklists for your research, that are listed in the `docs/a
 - [REFORMS](https://reforms.cs.princeton.edu/)
 - [The Open Ethics Canvas](https://openethics.ai/canvas/)
 - [FAIR](https://guides.library.cmu.edu/researchdatamanagement/FAIR_principles)
+
+## Model license
+
+The code in this repository is under the MIT license. Model weights are a separate release.
+A [Responsible AI License](https://www.licenses.ai/) (RAIL) is good practice for those weights.
+It states which uses are in scope, so a checkpoint shared with a paper or a submission keeps that restriction.
 
 ## Cite
 
